@@ -16,6 +16,7 @@
 5.cin是系统定义的流入流对象，和>>配合使用
 作用：从输入设备中提取数据送入输入流cin中。
 endl作用是换行，和\n作用一样。
+
 # 1.3 class 类
 1.class是声明类的关键词，类中有两个成员：数据成员、成员函数。
 2.类中数据和函数分两类：private、public.
@@ -28,4 +29,48 @@ private类型：只能在本类中的成员函数调用。
 5.C++中保留了C中一些规定，C++中允许使用原来带.h后缀的头文件。
 因为C中没有命名空间，因此不必进行声明命名空间。
 部分C++编译器允许main函数不是int类型，因此允许没有返回语句return 0。（Dev-C++就不允许main函数为void类型）
+
+# 1.4 C++对C的扩充
+1.用cout进行输入
+（1）cout必须配合"<<"共同使用，<<作用是插入。
+（2）可在一个语句中使用多个<<来输入多项，<<结合方向是自左向右。
+如：for(i=1; i=3; i++)
+              cout <<“count=“<<i<<endl;
+（3）一个<<,只能输出一项，不能写成：cout<<a,b,c;
+（4）用cout<<输出不需要输出输出格式符。
+如：float a = 3.45;
+    int b = 5;
+    char c = 'A';
+    cout <<"a = "<<a<<","<<"b = "<<","<<b<<"c = "<<c<<endl;
+ <<成为插入运算符
+2.用cin进行输入
+cin与>>配合使用
+如:  int a;
+     float b;
+     cin>>a>>b;
+
+以下是cin和cout一起使用
+#include<iostream>
+
+using namespace std;
+
+int main()
+{
+	cout<<"please enter your name and age:"<<endl;
+	char name[10];
+	int age;
+	cin>>name;
+	cin>>age;
+	cout<<"your name is "<<name<<endl;
+	cout<<"your age is "<<age<<endl;
+
+	return 0;
+}
+
+3.用const定义变量
+（1）C语言用#define命令定义变量，如#define Pl 3.14
+C++用 const定义常变量，如：const float pl = 3.14;(有数据类型，占用储存单元，有地址，可用指针指向它)
+（2）若函数定义在调用函数之后，要求在调用函数之前，必须对所调用的函数作原型声明。
+目的：使编译系统对函数调用的合法性进行检查。
+函数声明的形式：   函数类型 函数名 (参数表)  如：int max (int x,int y);
 
